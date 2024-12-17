@@ -7,14 +7,14 @@ const Transactions = () => {
       id: 1,
       name: 'Jerlyth Cristina Torres',
       date: '2024/12/6 : 13:28 pm',
-      voucherLink: '/placeholders/voucher1.txt', // Archivo temporal
+      voucherLink: '/placeholders/voucher1.webp', // Imagen en formato JPG
       status: 'En proceso',
     },
     {
       id: 2,
       name: 'Juan Pérez',
       date: '2024/12/7 : 14:30 pm',
-      voucherLink: '/placeholders/voucher2.txt', // Archivo temporal
+      voucherLink: '/placeholders/voucher2.jpg', // Imagen en formato PNG
       status: 'En proceso',
     },
   ]);
@@ -47,10 +47,10 @@ const Transactions = () => {
               <td>{transaction.name}</td>
               <td>{transaction.date}</td>
               <td>
-                {/* Link de descarga temporal */}
+                {/* Enlace para descargar la imagen */}
                 <a
                   href={transaction.voucherLink}
-                  download={`voucher_${transaction.name.replace(/\s+/g, '_').toLowerCase()}.txt`}
+                  download={`voucher_${transaction.name.replace(/\s+/g, '_').toLowerCase()}.jpg`}
                 >
                   Descargar Voucher
                 </a>
