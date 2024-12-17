@@ -1,27 +1,24 @@
 import React, { useState } from 'react';
-import './Transactions.css'; // Importa el archivo de estilos
+import './Transactions.css';
 
 const Transactions = () => {
-  // Estado para almacenar las transacciones
   const [transactions, setTransactions] = useState([
     {
       id: 1,
       name: 'Jerlyth Cristina Torres',
       date: '2024/12/6 : 13:28 pm',
-      voucherLink: 'link',
+      voucherLink: '/placeholders/voucher1.txt', // Archivo temporal
       status: 'En proceso',
     },
     {
       id: 2,
       name: 'Juan Pérez',
       date: '2024/12/7 : 14:30 pm',
-      voucherLink: 'link',
+      voucherLink: '/placeholders/voucher2.txt', // Archivo temporal
       status: 'En proceso',
     },
-    // Agrega más transacciones según sea necesario
   ]);
 
-  // Función para cambiar el estado de la transacción
   const changeStatus = (id, newStatus) => {
     setTransactions((prevTransactions) =>
       prevTransactions.map((transaction) =>
@@ -49,7 +46,15 @@ const Transactions = () => {
               <td>{transaction.id}</td>
               <td>{transaction.name}</td>
               <td>{transaction.date}</td>
-              <td>{transaction.voucherLink}</td>
+              <td>
+                {/* Link de descarga temporal */}
+                <a
+                  href={transaction.voucherLink}
+                  download={`voucher_${transaction.name.replace(/\s+/g, '_').toLowerCase()}.txt`}
+                >
+                  Descargar Voucher
+                </a>
+              </td>
               <td>
                 {transaction.status}
                 <div>

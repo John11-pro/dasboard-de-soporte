@@ -1,0 +1,9 @@
+Voucher de Transacción
+
+ID: 1
+Nombre: Jerlyth Cristina Torres
+Fecha: 2024/12/6 - 13:28 PM
+Monto: S/ 500.00
+Estado: En proceso
+
+Comprobante generado para revisión de transacción.
