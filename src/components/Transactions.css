@@ -1,0 +1,67 @@
+/* Estilos para el componente de transacciones */
+.transactions {
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+  }
+  
+  .transactions h2 {
+    text-align: center;
+    color: #00102a; /* Azul marino */
+    font-size: 2.5em;
+    margin-bottom: 20px;
+  }
+  
+  table {
+    width: 80%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    background-color: #f8bd26; /* Color amarillo dorado */
+  }
+  
+  th, td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  th {
+    background-color: #00102a; /* Azul marino */
+    color: white;
+  }
+  
+  td {
+    color: #555;
+  }
+  
+  button {
+    background-color: #00102a; /* Azul marino */
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 5px;
+  }
+  
+  button:hover {
+    background-color: #f8bd26; /* Color amarillo dorado */
+  }
+  
+  @media (max-width: 768px) {
+    table {
+      width: 100%;
+    }
+    th, td {
+      padding: 8px;
+    }
+  }
+  
