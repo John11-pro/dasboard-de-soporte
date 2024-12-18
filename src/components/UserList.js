@@ -32,8 +32,10 @@ const UserList = () => {
             <tr key={user.id}>
               <td>{user.id}</td>
               <td>
-                {/* Redirige a la página de detalles del usuario */}
-                <Link to={`/user-details/${user.id}`}>{user.name}</Link>
+                {/* Enlace en el nombre que redirige a UserDetails */}
+                <Link to={`/user-details/${user.id}`} className="user-name-link">
+                  {user.name}
+                </Link>
               </td>
               <td>{user.dni}</td>
               <td>{user.whatsapp}</td>

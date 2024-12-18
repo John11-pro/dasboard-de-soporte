@@ -69,51 +69,58 @@ button:hover {
 /* Estilos para la página de detalles del usuario */
 .user-details {
   max-width: 800px;
-  margin: 0 auto;
+  margin: 20px auto;
   padding: 20px;
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.user-details h2 {
-  color: #333;
-  font-size: 2em;
+.user-details h1 {
+  text-align: center;
+  color: #00102A; /* Azul marino */
+  font-size: 2.2em;
   margin-bottom: 20px;
+  font-weight: bold;
 }
 
-.user-details .detail-item {
-  margin-bottom: 12px;
-  font-size: 1.1em;
+/* Detalle individual alineado con Flexbox */
+.detail-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  font-size: 1em;
 }
 
-.user-details .detail-item label {
+.detail-item label {
   font-weight: bold;
   color: #00102A; /* Azul marino */
+  flex: 1;
 }
 
-.user-details .detail-item p {
-  color: #555;
-}
-
-.user-details button {
+.detail-item button {
   background-color: #f8bd26; /* Amarillo dorado */
-  color: #00102A; /* Azul marino */
+  color: #00102A;
   border: none;
-  padding: 10px 20px;
-  font-size: 16px;
+  padding: 6px 12px;
+  font-size: 0.9em;
   cursor: pointer;
   border-radius: 5px;
-  margin-top: 20px;
 }
 
-.user-details button:hover {
+.detail-item button:hover {
   background-color: #d89d18; /* Un tono más oscuro del amarillo */
 }
 
 @media (max-width: 768px) {
-  .user-details {
-    width: 95%;
+  .detail-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .detail-item button {
+    margin-top: 5px;
   }
 }
 
@@ -123,4 +130,87 @@ button:hover {
   font-size: 2.5em;
   margin-bottom: 20px;
   text-align: center; /* Centra el texto */
+}
+
+/* Estilos para el modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7); /* Fondo semi-transparente */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Contenedor del modal */
+.modal-content {
+  display: flex;
+  flex-direction: column; /* Alinea los elementos verticalmente */
+  align-items: center; /* Centra todo horizontalmente */
+  justify-content: center;
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 90%;
+  max-height: 80%;
+  overflow: auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Estilo para ajustar la imagen dentro del modal */
+.modal-content img {
+  max-width: 100%; /* La imagen no será más grande que el contenedor */
+  height: auto; /* Mantiene la proporción original */
+  max-height: 80vh; /* No exceder el 80% de la altura de la ventana */
+  object-fit: contain; /* Escalar la imagen para que se ajuste sin recortar */
+  border-radius: 5px; /* Bordes redondeados */
+}
+
+/* Botón Cerrar */
+.close-modal-button {
+  background-color: #cc0000; /* Rojo */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 15px;
+  display: block; /* Ocupa el espacio necesario */
+}
+
+.close-modal-button:hover {
+  background-color: #b30000; /* Rojo más oscuro */
+}
+
+/* Botón Enviar Email */
+.send-email-button {
+  background-color: #f8bd26; /* Amarillo dorado */
+  color: #00102a; /* Azul marino */
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.send-email-button:hover {
+  background-color: #d89d18; /* Amarillo oscuro */
+}
+/* Estilo para el enlace del nombre sin subrayado */
+.user-name-link {
+  color: #00102A; /* Azul marino */
+  font-weight: bold;
+  text-decoration: none; /* Elimina el subrayado */
+  cursor: pointer;
+}
+
+.user-name-link:hover {
+  color: #f8bd26; /* Amarillo dorado */
+  text-decoration: none; /* Asegura que no tenga subrayado al pasar el cursor */
 }

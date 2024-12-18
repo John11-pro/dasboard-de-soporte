@@ -7,17 +7,19 @@ const Transactions = () => {
       id: 1,
       name: 'Jerlyth Cristina Torres',
       date: '2024/12/6 : 13:28 pm',
-      voucherLink: '/placeholders/voucher1.webp', // Imagen en formato JPG
+      voucherLink: '/placeholders/voucher1.webp',
       status: 'En proceso',
     },
     {
       id: 2,
       name: 'Juan Pérez',
       date: '2024/12/7 : 14:30 pm',
-      voucherLink: '/placeholders/voucher2.jpg', // Imagen en formato PNG
+      voucherLink: '/placeholders/voucher2.jpg',
       status: 'En proceso',
     },
   ]);
+
+  const [modalImage, setModalImage] = useState(null); // Estado para controlar la imagen en el modal
 
   const changeStatus = (id, newStatus) => {
     setTransactions((prevTransactions) =>
@@ -25,6 +27,14 @@ const Transactions = () => {
         transaction.id === id ? { ...transaction, status: newStatus } : transaction
       )
     );
+  };
+
+  const openImageModal = (imageUrl) => {
+    setModalImage(imageUrl); // Abrir el modal con la imagen seleccionada
+  };
+
+  const closeModal = () => {
+    setModalImage(null); // Cerrar el modal
   };
 
   return (
@@ -47,13 +57,13 @@ const Transactions = () => {
               <td>{transaction.name}</td>
               <td>{transaction.date}</td>
               <td>
-                {/* Enlace para descargar la imagen */}
-                <a
-                  href={transaction.voucherLink}
-                  download={`voucher_${transaction.name.replace(/\s+/g, '_').toLowerCase()}.jpg`}
+                {/* Botón que abre el modal con la imagen */}
+                <button
+                  className="link-button"
+                  onClick={() => openImageModal(transaction.voucherLink)}
                 >
-                  Descargar Voucher
-                </a>
+                  Ver Voucher
+                </button>
               </td>
               <td>
                 {transaction.status}
@@ -73,6 +83,18 @@ const Transactions = () => {
           ))}
         </tbody>
       </table>
+
+      {/* Modal para mostrar la imagen */}
+      {modalImage && (
+        <div className="modal-overlay" onClick={closeModal}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <img src={modalImage} alt="Voucher" />
+            <button onClick={closeModal} className="close-modal-button">
+              Cerrar
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

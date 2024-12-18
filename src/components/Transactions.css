@@ -1,67 +1,137 @@
 /* Estilos para el componente de transacciones */
 .transactions {
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-top: 20px;
-  }
-  
-  .transactions h2 {
-    text-align: center;
-    color: #00102a; /* Azul marino */
-    font-size: 2.5em;
-    margin-bottom: 20px;
-  }
-  
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
+
+.transactions h2 {
+  text-align: center;
+  color: #00102a; /* Azul marino */
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
+
+table {
+  width: 80%;
+  margin: 0 auto;
+  border-collapse: collapse;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  background-color: #f8bd26; /* Color amarillo dorado */
+}
+
+th, td {
+  padding: 12px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #00102a; /* Azul marino */
+  color: white;
+}
+
+td {
+  color: #555;
+}
+
+/* Forzar el estilo del enlace "Ver Voucher" */
+table .link-button,
+.transactions .link-button {
+  all: unset; /* Elimina TODOS los estilos por defecto del botón */
+  color: blue !important; /* Fuerza el color azul */
+  text-decoration: underline !important; /* Fuerza el subrayado */
+  font-size: 14px !important; /* Tamaño de fuente */
+  cursor: pointer !important; /* Cursor de enlace (mano) */
+  font-family: inherit; /* Hereda la fuente global */
+}
+
+table .link-button:hover,
+.transactions .link-button:hover {
+  color: darkblue !important; /* Azul más oscuro al pasar el cursor */
+  text-decoration: underline !important; /* Mantiene el subrayado */
+}
+
+/* Botones de estado */
+button {
+  background-color: #00102a; /* Azul marino */
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin: 5px;
+}
+
+button:hover {
+  background-color: #f8bd26; /* Color amarillo dorado */
+  color: #00102a;
+}
+
+/* Estilos del modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7); /* Fondo semi-transparente */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 90%;
+  max-height: 80%;
+  text-align: center;
+  overflow: auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.modal-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+.close-modal-button {
+  margin: 20px auto 0 auto; /* Margen superior y centrado horizontal */
+  display: block; /* Hace que el botón ocupe todo el ancho disponible */
+  background-color: #cc0000; /* Rojo */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.close-modal-button:hover {
+  background-color: #b30000; /* Rojo más oscuro */
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
   table {
-    width: 80%;
-    margin: 0 auto;
-    border-collapse: collapse;
-    border: 2px solid #ddd;
-    border-radius: 8px;
-    background-color: #f8bd26; /* Color amarillo dorado */
+    width: 100%;
   }
-  
   th, td {
-    padding: 12px;
-    text-align: center;
-    border-bottom: 1px solid #ddd;
+    padding: 8px;
   }
-  
-  th {
-    background-color: #00102a; /* Azul marino */
-    color: white;
+  .modal-content {
+    max-width: 95%;
   }
-  
-  td {
-    color: #555;
-  }
-  
-  button {
-    background-color: #00102a; /* Azul marino */
-    color: white;
-    border: none;
-    padding: 8px 16px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 14px;
-    cursor: pointer;
-    border-radius: 5px;
-    margin: 5px;
-  }
-  
-  button:hover {
-    background-color: #f8bd26; /* Color amarillo dorado */
-  }
-  
-  @media (max-width: 768px) {
-    table {
-      width: 100%;
-    }
-    th, td {
-      padding: 8px;
-    }
-  }
-  
+}
