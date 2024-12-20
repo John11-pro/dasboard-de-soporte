@@ -40,6 +40,20 @@ tr:hover {
   background-color: #f1f1f1;
 }
 
+/* Estilo para el enlace del nombre sin subrayado */
+.user-name-link {
+  color: #00102A; /* Azul marino */
+  font-weight: bold;
+  text-decoration: none; /* Elimina el subrayado */
+  cursor: pointer;
+}
+
+.user-name-link:hover {
+  color: #f8bd26; /* Amarillo dorado */
+  text-decoration: none;
+}
+
+/* Botones generales */
 button {
   background-color: #f8bd26; /* Amarillo dorado */
   color: #00102A; /* Azul marino */
@@ -57,12 +71,41 @@ button:hover {
   background-color: #d89d18; /* Un tono más oscuro del amarillo */
 }
 
+/* Estilos para pantallas pequeñas (Responsive) */
 @media (max-width: 768px) {
   table {
     width: 100%;
+    border: 0;
   }
-  th, td {
+
+  thead {
+    display: none; /* Oculta el encabezado */
+  }
+
+  tr {
+    display: block;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
     padding: 8px;
+  }
+
+  td {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 10px;
+    font-size: 14px;
+    border-bottom: none;
+  }
+
+  td::before {
+    content: attr(data-label); /* Muestra el encabezado como contenido */
+    font-weight: bold;
+    text-transform: capitalize;
+    color: #00102A; /* Azul marino */
+    margin-right: 10px;
   }
 }
 
@@ -129,7 +172,7 @@ button:hover {
   color: #00102A; /* Azul marino */
   font-size: 2.5em;
   margin-bottom: 20px;
-  text-align: center; /* Centra el texto */
+  text-align: center;
 }
 
 /* Estilos para el modal */
@@ -201,16 +244,4 @@ button:hover {
 
 .send-email-button:hover {
   background-color: #d89d18; /* Amarillo oscuro */
-}
-/* Estilo para el enlace del nombre sin subrayado */
-.user-name-link {
-  color: #00102A; /* Azul marino */
-  font-weight: bold;
-  text-decoration: none; /* Elimina el subrayado */
-  cursor: pointer;
-}
-
-.user-name-link:hover {
-  color: #f8bd26; /* Amarillo dorado */
-  text-decoration: none; /* Asegura que no tenga subrayado al pasar el cursor */
 }

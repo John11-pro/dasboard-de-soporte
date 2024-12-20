@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const UserList = () => {
   const users = [
-    { id: 1, name: 'Jerlyth Cristina Torres', email: 'jerlythtorres87@gmail.com', dni: '73010039', whatsapp: '965041479' },
+    { id: 1, name: 'Jerlyth Cristina Torres', email: 'john9jcg@gmail.com', dni: '73010039', whatsapp: '965041479' },
     { id: 2, name: 'Juan Pérez', email: 'juanperez@gmail.com', dni: '12345678', whatsapp: '987654321' },
     { id: 3, name: 'Carlos Mendoza', email: 'carlosmendoza@gmail.com', dni: '23456789', whatsapp: '965432123' },
     { id: 4, name: 'Ana García', email: 'anagarcia@gmail.com', dni: '34567890', whatsapp: '945678901' },
@@ -30,15 +30,14 @@ const UserList = () => {
         <tbody>
           {users.map((user) => (
             <tr key={user.id}>
-              <td>{user.id}</td>
-              <td>
-                {/* Enlace en el nombre que redirige a UserDetails */}
+              <td data-label="ID">{user.id}</td>
+              <td data-label="Nombre y Apellido">
                 <Link to={`/user-details/${user.id}`} className="user-name-link">
                   {user.name}
                 </Link>
               </td>
-              <td>{user.dni}</td>
-              <td>{user.whatsapp}</td>
+              <td data-label="DNI">{user.dni}</td>
+              <td data-label="Whatsapp">{user.whatsapp}</td>
             </tr>
           ))}
         </tbody>

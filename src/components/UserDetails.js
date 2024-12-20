@@ -1,34 +1,52 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
+import emailjs from '@emailjs/browser';
 
 const UserDetails = () => {
-  // Obtener el ID del usuario desde la URL
   const { id } = useParams();
-
-  // Estado para mostrar la imagen en el modal
   const [modalImage, setModalImage] = useState(null);
+  const [isSending, setIsSending] = useState(false);
 
-  // Función para abrir la imagen en el modal
   const openImageModal = (imageUrl) => {
     setModalImage(imageUrl);
   };
 
-  // Función para cerrar el modal
   const closeModal = () => {
     setModalImage(null);
   };
 
-  // Función para enviar el correo
-  const sendConfirmationEmail = (email) => {
-    window.location.href = `mailto:${email}?subject=Confirmación de cuenta&body=Hola, por favor confirma tu cuenta haciendo clic en el siguiente enlace: [Enlace de confirmación]`;
+  const sendConfirmationEmail = (user) => {
+    setIsSending(true);
+
+    const templateParams = {
+      to_name: user.name,
+      to_email: user.email,
+      from_email: "altoqueperuwk@gmail.com",
+      message: `Hola ${user.name}, por favor confirma tu cuenta haciendo clic en el siguiente enlace: [Enlace de confirmación]`,
+    };
+
+    emailjs
+      .send(
+        'service_bpyvcoi', // Reemplaza con tu Service ID
+        'template_xmrnpd7', // Reemplaza con tu Template ID
+        templateParams,
+        'd5zN3w-yJkY_Q-etV' // Reemplaza con tu Public Key de EmailJS
+      )
+      .then(() => {
+        alert('Correo enviado exitosamente');
+        setIsSending(false);
+      })
+      .catch((error) => {
+        alert('Error al enviar el correo: ' + error.text);
+        setIsSending(false);
+      });
   };
 
-  // Lista de 10 usuarios con imágenes
   const users = [
     {
       id: 1,
       name: 'Jerlyth Cristina Torres',
-      email: 'jerlythtorres87@gmail.com',
+      email: 'john9jcg@gmail.com',
       dni: '73010039',
       whatsapp: '965041479',
       code: 'ABC123',
@@ -165,14 +183,16 @@ const UserDetails = () => {
       <div className="detail-item"><label>Link foto perfil con DNI:</label> <button onClick={() => openImageModal(user.photoLink)}>Ver</button></div>
       <div className="detail-item"><label>Link foto tarjeta:</label> <button onClick={() => openImageModal(user.cardLink)}>Ver</button></div>
 
-      {/* Botón para enviar email de confirmación */}
       <div style={{ textAlign: 'center', marginTop: '20px' }}>
-        <button onClick={() => sendConfirmationEmail(user.email)} className="send-email-button">
-          Enviar Email de Confirmación
+        <button
+          onClick={() => sendConfirmationEmail(user)}
+          className="send-email-button"
+          disabled={isSending}
+        >
+          {isSending ? 'Enviando...' : 'Enviar Email de Confirmación'}
         </button>
       </div>
 
-      {/* Modal para mostrar imágenes */}
       {modalImage && (
         <div className="modal-overlay" onClick={closeModal}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
